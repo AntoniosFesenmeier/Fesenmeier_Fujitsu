@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<Movie>
+
+
+    <div class="form-row " style="margin-top:50px">       
+        <form class="form-inline">
+            <input class="form-control form-control" type="text" placeholder="Search"
+                   aria-label="Search" name="searchString" value="@ViewData["SearchString"]">
+   
+            <button asp-action="index" asp-controller="home" class="btn btn-primary">Search</button>       
+            <a asp-action="create" asp-controller="home" class="btn btn-success">Add Movie</a>
+        </form>
+    </div>     
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Director</th>
+            <th scope="col">Actors</th>
+            <th scope="col">Year</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (@Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="5" class="text-center"><strong>No Movies =(</strong></td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var m in @Model)
+            {
+                <tr>
+                    <td><img src="@m.image" style="max-height:250px; max-width:250px" /></td>
+                    <td>@m.title</td>
+                    <td>@m.director</td>
+                    <td>@m.actors</td>
+                    <td>@m.year</td>                                     
+                    <td><a asp-action="edit" asp-controller="home" asp-route-id="@m.Id">Edit</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

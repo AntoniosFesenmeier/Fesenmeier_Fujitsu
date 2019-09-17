@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "RandomImg";
+}
+
+    <form asp-controller="Picsum" asp-action="RandomImg" method="get">
+        <div class="form-row " style="margin-top:10px">
+            <button class="btn btn-warning" type="submit">Random Image</button>            
+        </div>
+        <div class="form-row " style="margin-top:10px">
+            <img src="@ViewData["ImgPath"]" />
+        </div>
+    </form>

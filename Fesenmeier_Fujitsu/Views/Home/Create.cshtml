@@ -1,0 +1,43 @@
+﻿
+@model Movie
+
+<h1>Add Movie</h1>
+
+<form asp-controller="Home" asp-action="Create" method="post">
+
+    <div class="form-row">
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input asp-for="title" class="form-control" id="title" placeholder="Title">
+                <span class="text-danger" asp-validation-for="title"></span>
+            </div>
+            <div class="form-group">
+                <label for="director">Director</label>
+                <input asp-for="director" class="form-control" id="director" placeholder="Director">
+            </div>
+            <div class="form-group">
+                <label for="actors">Actors</label>
+                <input asp-for="actors" class="form-control" id="actors" placeholder="Actors">
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input asp-for="year" type="number" class="form-control" id="year" placeholder="Year">
+                <span class="text-danger" asp-validation-for="year"></span>
+            </div>
+            <div class="form-group">
+                <label for="image">Image path</label>
+                <input asp-for="image" type="url" class="form-control" id="image" placeholder="Image path" >
+            </div>
+
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+
+
